@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :validatable, :omniauthable, omniauth_providers: [:firebase]
   has_many :authorizations, dependent: :destroy
   has_and_belongs_to_many :interests
-  has_many :chats, foreign_key: [:sender_id, :receiver_id]
-  has_many :likes, foreign_key: [:sender_id, :receiver_id]
+  has_many :sender_chats,   class_name: 'Chat', foreign_key: :sender_id
+  has_many :receiver_chats, class_name: 'Chat', foreign_key: :receiver_id
   has_many :messages, foreign_key: :sender_id
   has_many :videos
   belongs_to :role
-  belongs_to :sex
+  belongs_to :sex, class_name: 'Sex'
   belongs_to :countries, class_name: 'Country'
   belongs_to :universities, class_name: 'University'
   belongs_to :cities, class_name: 'City'
