@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_210000) do
+ActiveRecord::Schema.define(version: 2021_01_08_012100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,86 @@ ActiveRecord::Schema.define(version: 2021_01_07_210000) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["provider", "uid"], name: "index_authorizations_on_provider_and_uid"
     t.index ["user_id"], name: "index_authorizations_on_user_id"
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sender_id", "receiver_id"], name: "index_chats_on_sender_id_and_receiver_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "country_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "continent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "interests_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "interest_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "interest_id"], name: "index_interests_users_on_user_id_and_interest_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "receiver_id"
+    t.boolean "sender_like"
+    t.boolean "receiver_like"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "sender_id"
+    t.text "text"
+    t.datetime "seen_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sex", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.string "color"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "country_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +136,16 @@ ActiveRecord::Schema.define(version: 2021_01_07_210000) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "uid"
+    t.string "gif"
+    t.integer "sort_order"
+    t.string "meta"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
