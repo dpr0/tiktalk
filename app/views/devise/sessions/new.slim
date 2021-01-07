@@ -1,0 +1,14 @@
+section#section1.signup-section.bg-black.text-center
+  .container
+    .row
+      .col-2
+      .col-8
+        h5.text-white-50
+          .notice = notice
+          .alert = alert
+    - if devise_mapping.omniauthable?
+      .row
+        .col-2
+        .col-4
+          #firebaseui-auth-container
+        .col-2
