@@ -31,15 +31,12 @@ html
     = yield
 
   footer.bg-black.small.text-center
-    - if (request.user_agent =~ /Mobile/) != nil
-      - Common.sites.each do |name|
-        = link_to name, "https://#{name}.KRSZ.RU", class: "btn btn-primary", style: 'bottom'
+    / - if (request.user_agent =~ /Mobile/) != nil
     section.contact-section.bg-black
       .container
         .social.d-flex.justify-content-center
-          - Common.sites.each do |name|
-            = link_to "https://#{name}.krsz.ru", class: 'mx-2' do
-              i.fab.fa-github
+          = link_to "https://tiktalk.krsz.ru", class: 'mx-2' do
+            i.fab.fa-github
         div.text-white-50 Copyright &copy; krsz.ru 2015-#{Time.now.year}
         = image_tag "https://mc.yandex.ru/watch/69467584", style: "position:absolute; left:-9999px;"
 
