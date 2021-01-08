@@ -9,13 +9,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    render status: :ok, json: current_user.all.to_json
+    user = User.find_by(id: params[:id])
+    if user
+      render status: :ok, json: user.to_json
+    else
+      render status: :not_found, json: "user with id = #{params[:id]} not found"
+    end
   end
 
   private
-
-  def current_user
-
-  end
 
 end

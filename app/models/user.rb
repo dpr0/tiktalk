@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many :receiver_chats, class_name: 'Chat', foreign_key: :receiver_id
   has_many :messages, foreign_key: :sender_id
   has_many :videos
-  belongs_to :role
-  belongs_to :sex, class_name: 'Sex'
-  belongs_to :countries, class_name: 'Country'
-  belongs_to :universities, class_name: 'University'
-  belongs_to :cities, class_name: 'City'
+  belongs_to :role,         optional: true
+  belongs_to :sex,          optional: true, class_name: 'Sex'
+  belongs_to :countries,    optional: true, class_name: 'Country'
+  belongs_to :universities, optional: true, class_name: 'University'
+  belongs_to :cities,       optional: true, class_name: 'City'
 
   def self.find_for_oauth(auth)
     authorization = Authorization.where(provider: auth[:provider], uid: auth[:uid]).first
