@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render status: :ok, json: User.all.to_json
+    # render status: :ok, json: User.all.to_json
   end
 
   def show

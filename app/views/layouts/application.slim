@@ -5,14 +5,14 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     link href="/public/favicon.ico" rel=('shortcut icon') type="image/x-icon"
-    title tiktalk.krsz.ru
+    title CRUSH
 
     = javascript_packs_with_chunks_tag 'application'
     = stylesheet_packs_with_chunks_tag 'application', media: 'all'
   body style="background-color: rgba(22,22,22,1)"
     nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top
       .container
-        = link_to 'Tik-Talk', root_path, class: 'nav-brand js-scroll-trigger'
+        = link_to 'CRUSH', root_path, class: 'nav-brand js-scroll-trigger'
         button.navbar-toggler.navbar-toggler-right aria-controls="navbarResponsive" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarResponsive" data-toggle="collapse" type="button"
           | Menu
           i.fas.fa-bars
@@ -33,12 +33,22 @@ html
   footer.bg-black.small.text-center
     / - if (request.user_agent =~ /Mobile/) != nil
     section.contact-section.bg-black
-      .container
+      .container.text-white-50
         .social.d-flex.justify-content-center
           = link_to "https://tiktalk.krsz.ru", class: 'mx-2' do
             i.fab.fa-github
-        div.text-white-50 Copyright &copy; krsz.ru 2015-#{Time.now.year}
+        div CRUSH &copy; #{Time.now.year}
         = image_tag "https://mc.yandex.ru/watch/69467584", style: "position:absolute; left:-9999px;"
+
+        - gems = Gem.loaded_specs
+        div
+          = "Ruby #{RUBY_VERSION}"
+        div
+          = "Ruby on Rails #{Rails::VERSION::STRING}"
+        div
+          = "Puma #{gems["puma"].version}"
+        div
+          = "Webpacker #{gems["webpacker"].version}"
 
 link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
 

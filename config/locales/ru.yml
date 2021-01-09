@@ -1,2 +1,20 @@
 ru:
   hello: "Hello world"
+  date:
+    month_names:
+      -
+      - январь
+      - февраль
+      - март
+      - апрель
+      - май
+      - июнь
+      - июль
+      - август
+      - сентябрь
+      - октябрь
+      - ноябрь
+      - декабрь
+  datetime:
+    distance_in_words:
+      x_days: "%{count} day"

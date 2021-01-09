@@ -18,6 +18,9 @@ gem 'omniauth'
 gem 'rest-client'
 gem 'whenever', require: false
 gem 'aws-sdk-s3', require: false
+gem 'font-awesome-rails'
+gem 'rails_admin_rollincode'
+gem 'rails_admin'
 
 group :development do
   gem 'byebug'
