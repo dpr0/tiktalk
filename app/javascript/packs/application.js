@@ -59,6 +59,13 @@ ui.start('#firebaseui-auth-container', {
     credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
 });
 
+setTimeout(function () {
+    $('h1.firebaseui-title').each(function () {
+        $(this).replaceWith($('<h3 class="firebaseui-title">' + this.innerHTML + '</h2>'));
+    });
+    $('.grecaptcha-badge').hide();
+}, 2000);
+
 // var componentRequireContext = require.context("components", true);
 // var ReactRailsUJS = require("react_ujs");
 // ReactRailsUJS.useContext(componentRequireContext);
