@@ -7,11 +7,11 @@
     "@rails/activestorage": "^6.1.1",
     "@rails/ujs": "^6.1.1",
     "@rails/webpacker": "5.2.1",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
-    "core-js": "^3.8.2",
-    "firebase": "^8.2.2",
+    "core-js": "^3.8.3",
+    "firebase": "^8.2.5",
     "firebaseui-ru": "^3.4.2",
     "interact": "^0.0.3",
     "jquery": "^3.5.1",
@@ -21,6 +21,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.1"
+    "webpack-dev-server": "^3.11.2"
   }
 }
