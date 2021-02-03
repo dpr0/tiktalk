@@ -13,7 +13,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'dotenv-rails'
 gem 'puma', '4.3.6'
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise', branch: 'ca-omniauth-2'
 gem 'omniauth'
 gem 'rest-client'
 gem 'whenever', require: false
